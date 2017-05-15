@@ -1,9 +1,19 @@
-doctype html
-html
-	head
+extends ../layout/layout.jade
+include ../includes/mixins.jade
+
+block headContent
 		title Jade Playground
-	body
-		
+
+block bodyContent
+		h1 Hi everyone
+
+		p(class='myP', id='myPID') This is a paragraph, as well!
+
+		div.myDiv.my2ndDiv#myDivID
+		.myDivClass
+
+
+
 		div(style={color: 'red', background:'black'})
 
 		form(action='', method='POST')
@@ -19,3 +29,31 @@ html
 				option(value='Coder') Coder
 
 			input(type='button', value='submit')
+
+		+paragraph
+		+paragraph2('Hey, hot is it going?')
+
+		form(action='', method='POST')
+			+formText('firstName', 'First Name:')
+			+formText('lastName', 'Last Name:')
+
+
+
+		- var myTitle = 'My Title'
+		h1 #{myTitle}
+
+		if myTitle
+			h1 #{myTitle}
+		else
+			h1 No Title!
+
+		- var mySkills = ['HTML', 'CSS', 'JS' ]
+		ul
+			each val in mySkills
+				li= val
+
+
+		
+
+
+		
